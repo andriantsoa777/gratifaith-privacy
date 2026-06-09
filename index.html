@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Politique de confidentialité – GratiFaith</title>
+  <meta name="description" content="Politique de confidentialité de l'application GratiFaith – gratitude, prière, journal spirituel et groupes privés." />
+  <meta property="og:title" content="Politique de confidentialité – GratiFaith" />
+  <meta property="og:description" content="Comment GratiFaith protège vos données personnelles et spirituelles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-deep: #1B3A2D;
+      --green-light: #6B8F7A;
+      --ivory: #F5F0E8;
+      --ivory-dark: #EDE6D6;
+      --gold: #C9A84C;
+      --gold-light: #E2C97A;
+      --text: #1A1A1A;
+      --text-muted: #555;
+      --white: #FFFFFF;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--ivory); color: var(--text); font-size: 16px; line-height: 1.75; }
+
+    header { background: var(--green-deep); color: var(--ivory); padding: 0 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+    .header-inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; letter-spacing: 0.04em; color: var(--ivory); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .lang-switch { display: flex; gap: 4px; background: rgba(255,255,255,0.1); border-radius: 20px; padding: 3px; }
+    .lang-btn { background: none; border: none; color: var(--ivory); font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 500; padding: 4px 12px; border-radius: 16px; cursor: pointer; transition: background 0.2s, color 0.2s; letter-spacing: 0.05em; }
+    .lang-btn.active { background: var(--gold); color: var(--green-deep); }
+    .lang-btn:hover:not(.active) { background: rgba(255,255,255,0.15); }
+
+    .hero { background: var(--green-deep); color: var(--ivory); padding: 56px 24px 48px; text-align: center; }
+    .hero-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.9rem, 5vw, 2.8rem); font-weight: 600; line-height: 1.25; margin-bottom: 14px; }
+    .hero-date { font-size: 0.8rem; color: var(--green-light); letter-spacing: 0.04em; }
+    .hero-divider { width: 48px; height: 2px; background: var(--gold); margin: 20px auto 0; opacity: 0.7; }
+
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+    .section { margin-top: 48px; }
+    .section-header { display: flex; align-items: baseline; gap: 14px; margin-bottom: 20px; border-bottom: 1px solid var(--ivory-dark); padding-bottom: 12px; }
+    .section-num { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold); font-weight: 600; letter-spacing: 0.05em; flex-shrink: 0; }
+    .section-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 600; color: var(--green-deep); line-height: 1.3; }
+    p { margin-bottom: 14px; font-size: 0.93rem; color: var(--text-muted); }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--green-deep); }
+
+    .data-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin-top: 8px; }
+    .data-table th { background: var(--green-deep); color: var(--ivory); font-weight: 600; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 14px; text-align: left; }
+    .data-table td { padding: 10px 14px; vertical-align: top; border-bottom: 1px solid var(--ivory-dark); color: var(--text-muted); line-height: 1.55; }
+    .data-table tr:nth-child(even) td { background: rgba(255,255,255,0.5); }
+    .data-table tr:last-child td { border-bottom: none; }
+    .tag-sensitive { display: inline-block; background: #FFF0E0; color: #8B4513; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 10px; margin-top: 4px; text-transform: uppercase; }
+    .tag-ok { display: inline-block; background: #E8F4EE; color: #1B6B3A; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 10px; margin-top: 4px; text-transform: uppercase; }
+
+    .policy-list { list-style: none; padding: 0; margin: 0; }
+    .policy-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--text-muted); padding: 9px 0; border-bottom: 1px solid var(--ivory-dark); line-height: 1.6; }
+    .policy-list li:last-child { border-bottom: none; }
+    .policy-list li::before { content: ''; display: block; width: 5px; height: 5px; min-width: 5px; background: var(--gold); border-radius: 50%; margin-top: 9px; }
+
+    .rights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 4px; }
+    .right-card { background: var(--white); border: 1px solid var(--ivory-dark); border-radius: 8px; padding: 14px 16px; }
+    .right-card strong { display: block; font-size: 0.82rem; font-weight: 600; color: var(--green-deep); margin-bottom: 4px; }
+    .right-card span { font-size: 0.8rem; color: var(--text-muted); }
+
+    .contact-block { background: var(--green-deep); border-radius: 12px; padding: 32px; text-align: center; margin-top: 52px; }
+    .contact-block p { color: rgba(245,240,232,0.75); font-size: 0.88rem; margin-bottom: 18px; }
+    .contact-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--green-deep); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.88rem; padding: 12px 24px; border-radius: 24px; text-decoration: none; letter-spacing: 0.03em; transition: background 0.2s, transform 0.15s; }
+    .contact-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    footer { background: var(--green-deep); color: rgba(245,240,232,0.5); text-align: center; font-size: 0.75rem; padding: 20px; letter-spacing: 0.03em; }
+
+    @media (max-width: 600px) {
+      .data-table { display: block; overflow-x: auto; }
+      .rights-grid { grid-template-columns: 1fr 1fr; }
+      .contact-block { padding: 24px 18px; }
+    }
+
+    [data-lang] { display: none; }
+    .lang-fr [data-lang="fr"] { display: block; }
+    .lang-en [data-lang="en"] { display: block; }
+    span[data-lang] { display: none; }
+    .lang-fr span[data-lang="fr"] { display: inline; }
+    .lang-en span[data-lang="en"] { display: inline; }
+  </style>
+</head>
+<body class="lang-fr">
+
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="7.5" y="1" width="3" height="16" rx="1.2" fill="currentColor" opacity="0.9"/>
+        <rect x="1" y="5.5" width="16" height="3" rx="1.2" fill="currentColor" opacity="0.9"/>
+      </svg>
+      GratiFaith
+    </a>
+    <div class="lang-switch">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <p class="hero-eyebrow">
+    <span data-lang="fr">Application mobile · Données personnelles</span>
+    <span data-lang="en">Mobile app · Personal data</span>
+  </p>
+  <h1>
+    <span data-lang="fr">Politique de confidentialité</span>
+    <span data-lang="en">Privacy Policy</span>
+  </h1>
+  <p class="hero-date">
+    <span data-lang="fr">Dernière mise à jour : 9 juin 2026</span>
+    <span data-lang="en">Last updated: June 9, 2026</span>
+  </p>
+  <div class="hero-divider"></div>
+</div>
+
+<div class="container">
+
+  <!-- 1. RESPONSABLE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>
+        <span data-lang="fr">Responsable de traitement</span>
+        <span data-lang="en">Data Controller</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <p><strong>Nirina Andriantsoa</strong><br>
+      Contact : <a href="mailto:gratifaith@gmail.com">gratifaith@gmail.com</a></p>
+      <p>GratiFaith est une application mobile de gratitude, de prière, de journal personnel, de parcours bibliques et de groupes privés. Cette politique explique quelles données sont traitées, pourquoi, pendant combien de temps, et comment exercer vos droits.</p>
+    </div>
+    <div data-lang="en">
+      <p><strong>Nirina Andriantsoa</strong><br>
+      Contact: <a href="mailto:gratifaith@gmail.com">gratifaith@gmail.com</a></p>
+      <p>GratiFaith is a mobile app for gratitude, prayer, personal journaling, Bible journeys, and private groups. This policy explains what data we process, why, for how long, and how to exercise your rights.</p>
+    </div>
+  </div>
+
+  <!-- 2. DONNÉES COLLECTÉES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>
+        <span data-lang="fr">Données collectées</span>
+        <span data-lang="en">Data Collected</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <table class="data-table">
+        <thead><tr><th>Catégorie</th><th>Données traitées</th><th>Sensibilité</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Compte</strong></td>
+            <td>UID Firebase, email, nom affiché, fournisseur de connexion (email / Google / Apple), vérification email</td>
+            <td><span class="tag-ok">Standard</span></td>
+          </tr>
+          <tr>
+            <td><strong>Profil</strong></td>
+            <td>Langue, saison spirituelle, onboarding, préférences bibliques, paramètres de confidentialité et notifications, token push Expo, dernière activité</td>
+            <td><span class="tag-ok">Standard</span></td>
+          </tr>
+          <tr>
+            <td><strong>Journal &amp; spiritualité</strong></td>
+            <td>Entrées de journal, gratitudes, prières, témoignages, émotions/humeurs, versets liés, images locales rattachées au journal</td>
+            <td><span class="tag-sensitive">Catégorie particulière</span></td>
+          </tr>
+          <tr>
+            <td><strong>Groupes privés</strong></td>
+            <td>Groupes, membres, rôles, invitations, publications, réactions, commentaires, images de posts (Firebase Storage). Le partage anonyme masque l'affichage mais le serveur conserve l'auteur pour modération.</td>
+            <td><span class="tag-sensitive">Peut révéler les convictions</span></td>
+          </tr>
+          <tr>
+            <td><strong>Notifications</strong></td>
+            <td>Permissions OS, horaires, fréquence, token Expo Push</td>
+            <td><span class="tag-ok">Standard</span></td>
+          </tr>
+          <tr>
+            <td><strong>Images</strong></td>
+            <td>Photos jointes au journal (conservées localement) ; images de posts de groupe (Firebase Storage)</td>
+            <td><span class="tag-ok">Standard</span></td>
+          </tr>
+          <tr>
+            <td><strong>Analytics limité</strong></td>
+            <td>Ouverture de l'app, pages vues, onboarding, fonctionnalités utilisées. <strong>Aucun</strong> contenu de journal, prière, message, image, email ou nom.</td>
+            <td><span class="tag-ok">Pseudonymisé</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div data-lang="en">
+      <table class="data-table">
+        <thead><tr><th>Category</th><th>Data Processed</th><th>Sensitivity</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Account</strong></td>
+            <td>Firebase UID, email, display name, login provider (email / Google / Apple), email verification</td>
+            <td><span class="tag-ok">Standard</span></td>
+          </tr>
+          <tr>
+            <td><strong>Profile</strong></td>
+            <td>Language, spiritual season, onboarding, Bible preferences, privacy and notification settings, Expo push token, last activity</td>
+            <td><span class="tag-ok">Standard</span></td>
+          </tr>
+          <tr>
+            <td><strong>Journal &amp; spirituality</strong></td>
+            <td>Journal entries, gratitudes, prayers, testimonies, emotions/moods, linked verses, local images attached to the journal</td>
+            <td><span class="tag-sensitive">Special category</span></td>
+          </tr>
+          <tr>
+            <td><strong>Private groups</strong></td>
+            <td>Groups, members, roles, invitations, posts, reactions, comments, post images (Firebase Storage). Anonymous sharing hides display names but the server retains the author for moderation.</td>
+            <td><span class="tag-sensitive">May reveal beliefs</span></td>
+          </tr>
+          <tr>
+            <td><strong>Notifications</strong></td>
+            <td>OS permissions, schedules, frequency, Expo push token</td>
+            <td><span class="tag-ok">Standard</span></td>
+          </tr>
+          <tr>
+            <td><strong>Images</strong></td>
+            <td>Photos attached to journal entries (stored locally); group post images (Firebase Storage)</td>
+            <td><span class="tag-ok">Standard</span></td>
+          </tr>
+          <tr>
+            <td><strong>Limited analytics</strong></td>
+            <td>App opens, screen views, onboarding, features used. <strong>No</strong> journal content, prayers, messages, images, emails or names.</td>
+            <td><span class="tag-ok">Pseudonymized</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 3. FINALITÉS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>
+        <span data-lang="fr">Pourquoi nous utilisons ces données</span>
+        <span data-lang="en">Why We Use This Data</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <ul class="policy-list">
+        <li>Créer et sécuriser votre compte</li>
+        <li>Fournir le journal privé, les prières, les parcours, les versets et les groupes</li>
+        <li>Personnaliser l'expérience selon votre langue, saison et préférences</li>
+        <li>Envoyer les notifications que vous choisissez</li>
+        <li>Assurer la sécurité, la modération minimale des groupes et le support</li>
+        <li>Mesurer l'usage de manière limitée afin d'améliorer GratiFaith</li>
+      </ul>
+    </div>
+    <div data-lang="en">
+      <ul class="policy-list">
+        <li>Create and secure your account</li>
+        <li>Provide the private journal, prayers, journeys, verses, and groups</li>
+        <li>Personalise your experience based on language, season, and preferences</li>
+        <li>Send the notifications you choose</li>
+        <li>Ensure security, minimal group moderation, and support</li>
+        <li>Measure usage in a limited way to improve GratiFaith</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 4. BASES LÉGALES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>
+        <span data-lang="fr">Bases légales</span>
+        <span data-lang="en">Legal Bases</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <ul class="policy-list">
+        <li><strong>Exécution du service</strong> — pour le compte, le profil et les fonctionnalités principales</li>
+        <li><strong>Consentement explicite</strong> — pour les contenus spirituels et religieux (journal, prières, témoignages) pouvant relever des catégories particulières de données au sens du RGPD</li>
+        <li><strong>Choix de l'utilisateur</strong> — pour les notifications push (permission OS) et l'accès galerie/caméra</li>
+        <li><strong>Mesure d'audience limitée</strong> — analytics produit avec opt-out disponible dans Confidentialité &amp; données, sous réserve des conditions d'exemption CNIL</li>
+      </ul>
+    </div>
+    <div data-lang="en">
+      <ul class="policy-list">
+        <li><strong>Contract performance</strong> — for account, profile, and core features</li>
+        <li><strong>Explicit consent</strong> — for spiritual and religious content (journal, prayers, testimonies) that may constitute special category data under GDPR</li>
+        <li><strong>User choice</strong> — for push notifications (OS permission) and gallery/camera access</li>
+        <li><strong>Limited audience measurement</strong> — product analytics with opt-out available in Privacy &amp; Data, subject to CNIL exemption conditions</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5. SOUS-TRAITANTS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>
+        <span data-lang="fr">Partage et sous-traitants</span>
+        <span data-lang="en">Sharing &amp; Processors</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <p>Nous <strong>ne vendons pas</strong> vos données personnelles et n'utilisons pas de suivi publicitaire.</p>
+      <ul class="policy-list">
+        <li><strong>Firebase / Google Cloud</strong> — authentification, base de données Firestore, stockage</li>
+        <li><strong>Expo Push Notifications</strong> — envoi des notifications push</li>
+        <li><strong>Google / Apple</strong> — connexion sociale si vous l'activez</li>
+        <li><strong>Apple App Store / Google Play</strong> — distribution de l'application</li>
+      </ul>
+    </div>
+    <div data-lang="en">
+      <p>We <strong>do not sell</strong> your personal data and do not use advertising tracking.</p>
+      <ul class="policy-list">
+        <li><strong>Firebase / Google Cloud</strong> — authentication, Firestore database, storage</li>
+        <li><strong>Expo Push Notifications</strong> — delivery of push notifications</li>
+        <li><strong>Google / Apple</strong> — social login if you enable it</li>
+        <li><strong>Apple App Store / Google Play</strong> — app distribution</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6. TRANSFERTS HORS UE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>
+        <span data-lang="fr">Transferts internationaux</span>
+        <span data-lang="en">International Transfers</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <p>Certains prestataires techniques peuvent traiter des données en dehors de l'Union européenne. Ces transferts sont encadrés par les garanties contractuelles appropriées fournies par ces prestataires (Firebase/Google Cloud, Expo), notamment les clauses contractuelles types conformes au RGPD.</p>
+    </div>
+    <div data-lang="en">
+      <p>Some technical providers may process data outside the European Union. These transfers are covered by appropriate contractual safeguards provided by those processors (Firebase/Google Cloud, Expo), including GDPR-compliant standard contractual clauses.</p>
+    </div>
+  </div>
+
+  <!-- 7. CONSERVATION -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>
+        <span data-lang="fr">Durées de conservation</span>
+        <span data-lang="en">Retention Periods</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <ul class="policy-list">
+        <li><strong>Compte et profil</strong> — jusqu'à suppression du compte</li>
+        <li><strong>Journal, prières, parcours, groupes</strong> — jusqu'à suppression par l'utilisateur ou suppression du compte</li>
+        <li><strong>Images de groupe</strong> — jusqu'à suppression du post, du groupe ou du compte</li>
+        <li><strong>Token push</strong> — jusqu'à désactivation des notifications, remplacement du token ou suppression du compte</li>
+        <li><strong>Analytics bruts</strong> — 13 mois maximum, puis agrégation ou suppression</li>
+        <li><strong>Sauvegardes techniques</strong> — 90 jours maximum</li>
+      </ul>
+    </div>
+    <div data-lang="en">
+      <ul class="policy-list">
+        <li><strong>Account and profile</strong> — until account deletion</li>
+        <li><strong>Journal, prayers, journeys, groups</strong> — until deleted by the user or account deletion</li>
+        <li><strong>Group images</strong> — until the post, group, or account is deleted</li>
+        <li><strong>Push token</strong> — until notifications are disabled, the token is replaced, or the account is deleted</li>
+        <li><strong>Raw analytics</strong> — 13 months maximum, then aggregated or deleted</li>
+        <li><strong>Technical backups</strong> — 90 days maximum</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 8. DROITS RGPD -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>
+        <span data-lang="fr">Vos droits</span>
+        <span data-lang="en">Your Rights</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+      <div class="rights-grid">
+        <div class="right-card"><strong>Accès</strong><span>Consulter vos données</span></div>
+        <div class="right-card"><strong>Rectification</strong><span>Corriger des données inexactes</span></div>
+        <div class="right-card"><strong>Effacement</strong><span>Supprimer vos données</span></div>
+        <div class="right-card"><strong>Limitation</strong><span>Restreindre un traitement</span></div>
+        <div class="right-card"><strong>Opposition</strong><span>Vous opposer à certains traitements</span></div>
+        <div class="right-card"><strong>Portabilité</strong><span>Récupérer vos données</span></div>
+        <div class="right-card"><strong>Retrait du consentement</strong><span>À tout moment, sans effet rétroactif</span></div>
+        <div class="right-card"><strong>Réclamation CNIL</strong><span>Contacter l'autorité de contrôle</span></div>
+      </div>
+      <p style="margin-top:16px;">Vous pouvez exporter ou supprimer vos données depuis l'écran <strong>Confidentialité &amp; données</strong> dans l'app, ou en nous écrivant à <a href="mailto:gratifaith@gmail.com">gratifaith@gmail.com</a>.</p>
+    </div>
+    <div data-lang="en">
+      <p>Under the GDPR, you have the following rights:</p>
+      <div class="rights-grid">
+        <div class="right-card"><strong>Access</strong><span>View your data</span></div>
+        <div class="right-card"><strong>Rectification</strong><span>Correct inaccurate data</span></div>
+        <div class="right-card"><strong>Erasure</strong><span>Delete your data</span></div>
+        <div class="right-card"><strong>Restriction</strong><span>Limit a processing activity</span></div>
+        <div class="right-card"><strong>Objection</strong><span>Object to certain processing</span></div>
+        <div class="right-card"><strong>Portability</strong><span>Export your data</span></div>
+        <div class="right-card"><strong>Withdraw consent</strong><span>At any time, without retroactive effect</span></div>
+        <div class="right-card"><strong>CNIL complaint</strong><span>Contact the supervisory authority</span></div>
+      </div>
+      <p style="margin-top:16px;">You can export or delete your data from the <strong>Privacy &amp; Data</strong> screen in the app, or by writing to us at <a href="mailto:gratifaith@gmail.com">gratifaith@gmail.com</a>.</p>
+    </div>
+  </div>
+
+  <!-- 9. SÉCURITÉ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>
+        <span data-lang="fr">Sécurité</span>
+        <span data-lang="en">Security</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <ul class="policy-list">
+        <li>Authentification Firebase avec vérification email</li>
+        <li>Règles Firestore/Storage limitant l'accès aux seules données de l'utilisateur connecté</li>
+        <li>Groupes entièrement privés, sur invitation uniquement</li>
+        <li>Permissions contextuelles pour photos, caméra et notifications</li>
+        <li>Journal stocké localement sur l'appareil ; images de groupe dans Firebase Storage avec règles d'accès strictes</li>
+      </ul>
+    </div>
+    <div data-lang="en">
+      <ul class="policy-list">
+        <li>Firebase authentication with email verification</li>
+        <li>Firestore/Storage rules restricting access to the current user's data only</li>
+        <li>Groups fully private, by invitation only</li>
+        <li>Contextual permissions for photos, camera and notifications</li>
+        <li>Journal stored locally on device; group images in Firebase Storage with strict access rules</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 10. MESURE D'AUDIENCE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>
+        <span data-lang="fr">Mesure d'audience</span>
+        <span data-lang="en">Analytics</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <p>GratiFaith mesure certains usages pour améliorer le produit : ouvertures de l'app, pages consultées, progression dans l'onboarding, fonctionnalités utilisées. Cette mesure est strictement interne à GratiFaith, non publicitaire, ne suit pas l'utilisateur entre services, et ne transmet aucun contenu de prière, journal ou message.</p>
+      <p>Elle peut être désactivée à tout moment dans <strong>Confidentialité &amp; données</strong> dans votre profil.</p>
+    </div>
+    <div data-lang="en">
+      <p>GratiFaith measures certain usage to improve the product: app opens, screens visited, onboarding progress, features used. This is strictly internal to GratiFaith, non-advertising, does not track users across services, and transmits no prayer, journal, or message content.</p>
+      <p>It can be disabled at any time in <strong>Privacy &amp; Data</strong> in your profile.</p>
+    </div>
+  </div>
+
+  <!-- 11. MINEURS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2>
+        <span data-lang="fr">Mineurs</span>
+        <span data-lang="en">Minors</span>
+      </h2>
+    </div>
+    <div data-lang="fr">
+      <p>GratiFaith est destinée aux personnes âgées de <strong>13 ans et plus</strong>. En créant un compte, vous confirmez avoir au moins 13 ans. Les utilisateurs âgés de 13 à 15 ans doivent avoir obtenu l'accord d'un parent ou tuteur légal conformément à la réglementation française (article 45 de la loi Informatique et Libertés). Nous ne collectons pas sciemment de données provenant de personnes de moins de 13 ans. Si vous pensez qu'un enfant de moins de 13 ans a créé un compte, contactez-nous à <a href="mailto:gratifaith@gmail.com">gratifaith@gmail.com</a> pour que nous procédions à la suppression du compte.</p>
+    </div>
+    <div data-lang="en">
+      <p>GratiFaith is intended for users aged <strong>13 and over</strong>. By creating an account, you confirm that you are at least 13 years old. Users aged 13 to 15 must have obtained parental or guardian consent in accordance with applicable regulations. We do not knowingly collect data from children under 13. If you believe a child under 13 has created an account, contact us at <a href="mailto:gratifaith@gmail.com">gratifaith@gmail.com</a> so we can delete it.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-block">
+    <div data-lang="fr"><p>Une question sur vos données ou l'exercice de vos droits ?</p></div>
+    <div data-lang="en"><p>A question about your data or exercising your rights?</p></div>
+    <a class="contact-btn" href="mailto:gratifaith@gmail.com">✉ gratifaith@gmail.com</a>
+  </div>
+
+</div>
+
+<footer>
+  <span data-lang="fr">© 2026 GratiFaith · Nirina Andriantsoa · <a href="mailto:gratifaith@gmail.com" style="color:inherit">gratifaith@gmail.com</a></span>
+  <span data-lang="en">© 2026 GratiFaith · Nirina Andriantsoa · <a href="mailto:gratifaith@gmail.com" style="color:inherit">gratifaith@gmail.com</a></span>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    document.title = lang === 'fr' ? 'Politique de confidentialité – GratiFaith' : 'Privacy Policy – GratiFaith';
+  }
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  if (urlLang === 'en') setLang('en');
+</script>
+</body>
+</html>
