@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supprimer mon compte – GratiFaith</title>
+  <meta name="description" content="Comment supprimer votre compte GratiFaith et toutes vos données personnelles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAFAF8;
+      --surface: #FFFFFF;
+      --border: #E8E4DC;
+      --text: #1A1714;
+      --muted: #6B6560;
+      --accent: #7C5CBF;
+      --accent-light: #F0EBFB;
+      --step: #E8E4DC;
+      --step-num: #7C5CBF;
+      --warn-bg: #FFF8F0;
+      --warn-border: #F0C080;
+      --warn-text: #7A4F10;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 32px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .lang-switch {
+      display: flex;
+      gap: 4px;
+      font-size: 0.8rem;
+    }
+    .lang-switch button {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 0.8rem;
+      transition: all 0.15s;
+    }
+    .lang-switch button.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 56px 24px 40px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .hero-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--accent-light);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.6rem;
+    }
+    .hero h1 {
+      font-family: 'Lora', serif;
+      font-size: 1.75rem;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* STEPS */
+    .steps-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-bottom: 32px;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 28px;
+      bottom: 28px;
+      width: 2px;
+      background: var(--step);
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--accent);
+      color: var(--step-num);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-body {
+      padding-top: 8px;
+    }
+    .step-body strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .step-body span {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* WARNING */
+    .warning {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .warning-icon { font-size: 1.1rem; flex-shrink: 0; padding-top: 2px; }
+    .warning p { font-size: 0.875rem; color: var(--warn-text); line-height: 1.6; }
+    .warning strong { font-weight: 600; }
+
+    /* DATA TABLE */
+    .data-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .data-card-header {
+      padding: 14px 20px;
+      background: var(--accent-light);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    .data-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+    .data-row:last-child { border-bottom: none; }
+    .data-row .dot {
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+      background: #D94F4F;
+    }
+    .data-row .dot.kept { background: #6B8F5A; }
+    .data-row-text { color: var(--text); }
+    .data-row-sub { font-size: 0.8rem; color: var(--muted); }
+
+    /* ALTERNATIVE */
+    .alt-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 32px;
+    }
+    .alt-card h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .alt-card p { font-size: 0.875rem; color: var(--muted); }
+    .alt-card a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .alt-card a:hover { text-decoration: underline; }
+
+    /* SECTION TITLE */
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 32px 0;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* LANG TOGGLE */
+    [lang-block="en"] { display: none; }
+
+    @media (max-width: 480px) {
+      nav { padding: 14px 16px; }
+      .hero { padding: 40px 16px 28px; }
+      main { padding: 0 16px 60px; }
+      .steps::before { left: 15px; }
+      .step-num { width: 32px; height: 32px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="https://gratifaith.app" class="nav-logo">GratiFaith</a>
+  <div class="lang-switch">
+    <button class="active" onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- FRENCH -->
+<div lang-block="fr">
+  <div class="hero">
+    <div class="hero-icon">🗑️</div>
+    <h1>Supprimer mon compte</h1>
+    <p>Vous pouvez supprimer votre compte GratiFaith directement depuis l'application, à tout moment.</p>
+  </div>
+
+  <main>
+    <p class="steps-label">Comment faire</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Ouvrez votre profil</strong>
+          <span>Appuyez sur l'icône de profil en bas à droite de l'écran principal.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Accédez aux paramètres</strong>
+          <span>Faites défiler jusqu'à la section <em>Confidentialité & données</em> ou <em>Paramètres du compte</em>.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Appuyez sur « Supprimer mon compte »</strong>
+          <span>Un écran de confirmation s'affiche avec un résumé de ce qui sera effacé.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>Reconnectez-vous pour confirmer</strong>
+          <span>Pour votre sécurité, l'application vous demande de saisir à nouveau votre mot de passe (ou de vous reconnecter via Google / Apple).</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>Suppression immédiate</strong>
+          <span>Toutes vos données sont effacées de nos serveurs. L'opération est irréversible.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning">
+      <span class="warning-icon">⚠️</span>
+      <p><strong>Action irréversible.</strong> La suppression est définitive. Vos journaux, prières, gratitudes, groupes et paramètres seront effacés et ne pourront pas être récupérés.</p>
+    </div>
+
+    <p class="section-title">Ce qui est supprimé</p>
+    <div class="data-card">
+      <div class="data-card-header">Données effacées immédiatement</div>
+      <div class="data-row"><span class="dot"></span><div><div class="data-row-text">Compte et profil</div><div class="data-row-sub">Email, nom affiché, préférences</div></div></div>
+      <div class="data-row"><span class="dot"></span><div><div class="data-row-text">Journal, prières et gratitudes</div><div class="data-row-sub">Toutes vos entrées personnelles</div></div></div>
+      <div class="data-row"><span class="dot"></span><div><div class="data-row-text">Groupes et publications</div><div class="data-row-sub">Posts, réactions, commentaires</div></div></div>
+      <div class="data-row"><span class="dot"></span><div><div class="data-row-text">Images partagées dans les groupes</div><div class="data-row-sub">Stockées dans Firebase Storage</div></div></div>
+      <div class="data-row"><span class="dot"></span><div><div class="data-row-text">Token de notification push</div><div class="data-row-sub">Plus aucune notification envoyée</div></div></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-title">Vous ne trouvez pas l'option dans l'app ?</p>
+    <div class="alt-card">
+      <h3>Contactez-nous par email</h3>
+      <p>Si vous rencontrez un problème pour supprimer votre compte depuis l'application, écrivez-nous à <a href="mailto:gratifaith@gmail.com">gratifaith@gmail.com</a> en indiquant l'adresse email de votre compte. Nous traiterons votre demande sous 30 jours conformément au RGPD.</p>
+    </div>
+  </main>
+</div>
+
+<!-- ENGLISH -->
+<div lang-block="en">
+  <div class="hero">
+    <div class="hero-icon">🗑️</div>
+    <h1>Delete my account</h1>
+    <p>You can delete your GratiFaith account directly from the app, at any time.</p>
+  </div>
+
+  <main>
+    <p class="steps-label">How to delete your account</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>Open your profile</strong>
+          <span>Tap the profile icon at the bottom right of the main screen.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>Go to settings</strong>
+          <span>Scroll down to the <em>Privacy & Data</em> or <em>Account Settings</em> section.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Tap "Delete my account"</strong>
+          <span>A confirmation screen appears summarising what will be erased.</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>Re-authenticate to confirm</strong>
+          <span>For your security, the app asks you to re-enter your password (or sign in again via Google / Apple).</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>Immediate deletion</strong>
+          <span>All your data is erased from our servers. This action cannot be undone.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning">
+      <span class="warning-icon">⚠️</span>
+      <p><strong>This action is permanent.</strong> Your journals, prayers, gratitudes, groups, and settings will be deleted and cannot be recovered.</p>
+    </div>
+
+    <p class="section-title">What gets deleted</p>
+    <div class="data-card">
+      <div class="data-card-header">Data erased immediately</div>
+      <div class="data-row"><span class="dot"></span><div><div class="data-row-text">Account and profile</div><div class="data-row-sub">Email, display name, preferences</div></div></div>
+      <div class="data-row"><span class="dot"></span><div><div class="data-row-text">Journal, prayers and gratitudes</div><div class="data-row-sub">All your personal entries</div></div></div>
+      <div class="data-row"><span class="dot"></span><div><div class="data-row-text">Groups and posts</div><div class="data-row-sub">Posts, reactions, comments</div></div></div>
+      <div class="data-row"><span class="dot"></span><div><div class="data-row-text">Images shared in groups</div><div class="data-row-sub">Stored in Firebase Storage</div></div></div>
+      <div class="data-row"><span class="dot"></span><div><div class="data-row-text">Push notification token</div><div class="data-row-sub">No further notifications will be sent</div></div></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="section-title">Can't find the option in the app?</p>
+    <div class="alt-card">
+      <h3>Contact us by email</h3>
+      <p>If you have trouble deleting your account from the app, write to us at <a href="mailto:gratifaith@gmail.com">gratifaith@gmail.com</a> with the email address linked to your account. We will process your request within 30 days in accordance with GDPR.</p>
+    </div>
+  </main>
+</div>
+
+<footer>
+  © 2026 GratiFaith · <a href="https://gratifaith.app/privacy">Politique de confidentialité / Privacy Policy</a>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[lang-block]').forEach(el => {
+      el.style.display = el.getAttribute('lang-block') === lang ? 'block' : 'none';
+    });
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+  }
+  // Init
+  setLang('fr');
+</script>
+
+</body>
+</html>
